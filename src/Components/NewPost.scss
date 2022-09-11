@@ -1,8 +1,11 @@
 .new-post-container{
     width: 100%;
     height: 100vh;
-    background: brown;
     position: fixed;
     z-index: 2;
     display: none;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }

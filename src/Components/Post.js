@@ -7,33 +7,18 @@ import SickReaction from "./SickReaction";
 const Post = ({ post }) => {
   return (
     <div class="post">
-      {/* <div className="image-container">
-        <img src={food}></img>
-      </div>
-
-      <div className="text-container">
-        <p>Love ({post.love})</p>
-        <p>Hate ({post.cry})</p>
-
-        <p>{post.shop}</p>
-        <h2>{post.main}</h2>
-
-        <p>{post.snack}</p>
-        <p>{post.drink}</p>
-  </div> */}
-
       <div className="image-container">
-        <img src={food}></img>
+        <img src={post.image}></img>
       </div>
-
       <div className="text-container">
+        <p className="caption">
+          {post.caption}
+        </p>
         <div className="reaction-container">
           <LoveReaction />
           <StraightFaceReaction />
           <SickReaction />
         </div>
-
-
       </div>
     </div>
   );

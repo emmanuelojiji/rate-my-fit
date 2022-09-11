@@ -5,27 +5,30 @@ import { db } from "../FirebaseConfig";
 
 const NewPost = ({ newPostVisible }) => {
   const [postInfo, setPostInfo] = useState({});
-  const [newShop, setNewShop] = useState("");
-  const [newMain, setNewMain] = useState("");
-  const [newSnack, setewSnack] = useState("");
-  const [newDrink, setNewDerink] = useState("");
+  const [caption, setCaption] = useState("");
 
   const sendPost = async (e) => {
     const docRef = await addDoc(collection(db, "posts"), {
-      shop: newShop,
-      main: newMain,
-      snack: newSnack,
-      drink: newDrink,
+      caption: caption,
     });
+
+    setCaption("")
   };
 
   return (
     <div
       className="new-post-container"
-      style={{ display: newPostVisible ? "block" : "none" }}
+      style={{ display: newPostVisible ? "flex" : "none" }}
     >
-      <input type="text"></input>
-      <input type="text"></input>/<input type="text"></input>
+      Caption:
+      <textarea
+        onChange={(e) => {
+          setCaption(e.target.value);
+          console.log(e.target.value);
+        }}
+        value={caption}
+      ></textarea>
+      <button onClick={() => sendPost()}>Post</button>
     </div>
   );
 };

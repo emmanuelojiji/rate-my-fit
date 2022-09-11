@@ -32,15 +32,15 @@ const Feed = ({ newPostVisible }) => {
     <main>
       <NewPost newPostVisible={newPostVisible} />
       <div className="Feed">
-        {/*posts.map((post) => (
+        {posts.map((post) => (
           <Post post={post} />
-        ))*/}
+        ))}
+        {/* <Post />
         <Post />
         <Post />
         <Post />
         <Post />
-        <Post />
-        <Post />
+      <Post />*/}
       </div>
     </main>
   );
