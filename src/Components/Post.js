@@ -33,11 +33,7 @@ const Post = ({ post }) => {
           <SickReaction />
         </div>
 
-        <p>Asda</p>
-        <h2>Sandwich</h2>
 
-        <p>Sensations</p>
-        <p>Pepsi</p>
       </div>
     </div>
   );
