@@ -1,6 +1,8 @@
 .reaction-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding-left: 50px;
+    padding-right: 50px;
    
 }
 
@@ -28,5 +30,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 12px;
+    margin-top: 5px;
+    justify-content: space-evenly;
 }
