@@ -1,0 +1,31 @@
+.reaction-container{
+    display: flex;
+   
+}
+
+.reaction{
+    background: rgb(233, 233, 233);
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 500px;
+    
+    &:hover{
+        cursor: pointer;
+    }
+
+    img{
+        width: 30px;
+        cursor: pointer;
+    }
+
+}
+
+.reaction-number-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 12px;
+}

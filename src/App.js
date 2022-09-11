@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Feed from "./Components/Feed";
+import NewPost from "./Components/NewPost";
+import { useState } from "react";
 
 function App() {
+  const [newPostVisible, setNewPostVisible] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <div className="header-wrap">
+          <h1>Rate My Meal Deal</h1>
+          <button onClick={() => setNewPostVisible(true)}>New Post</button>
+        </div>
       </header>
+      <Feed newPostVisible={newPostVisible} />
     </div>
   );
 }
