@@ -14,7 +14,10 @@ function App() {
           <button onClick={() => setNewPostVisible(true)}>New Post</button>
         </div>
       </header>
-      <Feed newPostVisible={newPostVisible} />
+      <Feed
+        newPostVisible={newPostVisible}
+        setNewPostVisible={setNewPostVisible}
+      />
     </div>
   );
 }

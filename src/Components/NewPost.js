@@ -7,7 +7,7 @@ import { storage } from "../FirebaseConfig";
 
 import { v4 as uuidv4 } from "uuid";
 
-const NewPost = ({ newPostVisible }) => {
+const NewPost = ({ newPostVisible, setNewPostVisible }) => {
   const [postInfo, setPostInfo] = useState({});
   const [caption, setCaption] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -34,6 +34,8 @@ const NewPost = ({ newPostVisible }) => {
       });
     
       setImageUrl(url);
+
+      await setNewPostVisible(false)
     }
   }
 

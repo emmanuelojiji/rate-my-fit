@@ -11,7 +11,7 @@ import { db } from "../FirebaseConfig";
 import NewPost from "./NewPost";
 import Post from "./Post";
 
-const Feed = ({ newPostVisible }) => {
+const Feed = ({ newPostVisible, setNewPostVisible }) => {
   const [posts, setPosts] = useState([]);
 
   const getPosts = async () => {
@@ -30,7 +30,7 @@ const Feed = ({ newPostVisible }) => {
 
   return (
     <main>
-      <NewPost newPostVisible={newPostVisible} />
+      <NewPost newPostVisible={newPostVisible} setNewPostVisible={setNewPostVisible} />
       <div className="Feed">
         {posts.map((post) => (
           <Post post={post} />
