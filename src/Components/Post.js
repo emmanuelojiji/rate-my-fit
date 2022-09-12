@@ -11,12 +11,8 @@ const Post = ({ post }) => {
         <img src={post.image}></img>
       </div>
       <div className="text-container">
-        <p className="caption">{post.caption}</p>
-        <div className="reaction-container">
-          <LoveReaction post={post} />
-          <StraightFaceReaction post={post} />
-          <SickReaction post={post} />
-        </div>
+        <span className="username">emmanuel</span>
+        <span className="caption">Wearing a vest today with some beige pants. What do you think?</span>
       </div>
     </div>
   );

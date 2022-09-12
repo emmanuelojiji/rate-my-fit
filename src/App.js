@@ -1,5 +1,5 @@
 import "./App.scss";
-import Feed from "./Components/Feed";
+import Feed from "./Pages/Feed";
 import NewPost from "./Components/NewPost";
 import { useEffect, useState, usePrevious } from "react";
 import Navigation from "./Components/Navigation";
@@ -11,8 +11,11 @@ function App() {
     <div className="App">
       <header>
         <div className="header-wrap">
-          <h1>Rate My Fit</h1>
-          <button onClick={() => setNewPostVisible(true)}>New Post</button>
+          <h1>Logo</h1>
+          <i
+            className="fa-regular fa-square-plus new-post"
+            onClick={() => setNewPostVisible(true)} 
+          ></i>
         </div>
       </header>
       <Feed

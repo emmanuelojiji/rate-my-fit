@@ -1,4 +1,4 @@
-import "../Components/Feed.scss";
+import "./Feed.scss";
 import { useState, useEffect } from "react";
 import {
   doc,
@@ -8,8 +8,8 @@ import {
   collection,
 } from "firebase/firestore";
 import { db } from "../FirebaseConfig";
-import NewPost from "./NewPost";
-import Post from "./Post";
+import NewPost from "../Components/NewPost";
+import Post from "../Components/Post";
 
 const Feed = ({ newPostVisible, setNewPostVisible }) => {
   const [posts, setPosts] = useState([]);
