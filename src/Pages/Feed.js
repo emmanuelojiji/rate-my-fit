@@ -13,7 +13,7 @@ import Post from "../Components/Post";
 import ScrollFeed from "../Components/ScrollFeed";
 import GridFeed from "../Components/GridFeed";
 
-const Feed = ({ newPostVisible, setNewPostVisible, view, imagePreviewURL }) => {
+const Feed = ({ newPostVisible, setNewPostVisible, view, imagePreviewURL, imageUpload }) => {
   const [posts, setPosts] = useState([]);
 
   const getPosts = async () => {
@@ -36,6 +36,7 @@ const Feed = ({ newPostVisible, setNewPostVisible, view, imagePreviewURL }) => {
         newPostVisible={newPostVisible}
         setNewPostVisible={setNewPostVisible}
         imagePreviewURL={imagePreviewURL}
+        imageUpload={imageUpload}
       />
       <div className="Feed">
         {view === "scroll" && <ScrollFeed posts={posts} />}

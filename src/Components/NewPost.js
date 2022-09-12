@@ -47,6 +47,7 @@ const NewPost = ({
       className="new-post-container"
       style={{ display: newPostVisible ? "flex" : "none" }}
     >
+      <img src={imagePreviewURL}></img>
       <textarea
         placeholder="Write a caption"
         onChange={(e) => {
@@ -55,8 +56,6 @@ const NewPost = ({
         }}
         value={caption}
       ></textarea>
-
-      <img src={imagePreviewURL}></img>
 
       <button onClick={() => sendPost()}>Post</button>
     </div>
