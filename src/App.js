@@ -3,6 +3,7 @@ import Feed from "./Pages/Feed";
 import NewPost from "./Components/NewPost";
 import { useEffect, useState, usePrevious } from "react";
 import Navigation from "./Components/Navigation";
+import Header from "./Components/Header";
 
 function App() {
   const [newPostVisible, setNewPostVisible] = useState(false);
@@ -13,38 +14,27 @@ function App() {
     view === "scroll" ? setView("grid") : setView("scroll");
   };
 
+  const [imageUpload, setImageUpload] = useState();
+  const [imagePreviewURL, setImagePreviewURL] = useState("");
+
   return (
     <div className="App">
-      <header>
-        <div className="header-wrap">
-          <h1>Logo</h1>
-          <div className="header-right">
-            {view === "scroll" && (
-              <i
-                class="fa-solid fa-border-none grid-icon"
-                onClick={() => toggleView()}
-              ></i>
-            )}
-            {view === "grid" && (
-              <i
-                class="fa-solid fa-list list-icon"
-                onClick={() => toggleView()}
-              ></i>
-            )}
-
-            <i
-              className="fa-regular fa-square-plus new-post"
-              onClick={() => setNewPostVisible(true)}
-            ></i>
-            <div className="profile-circle"></div>
-          </div>
-        </div>
-      </header>
+      <Header
+        view={view}
+        toggleView={toggleView}
+        setImageUpload={setImageUpload}
+        setImagePreviewURL={setImagePreviewURL}
+        imagePreviewURL={imagePreviewURL}
+        newPostVisible={newPostVisible}
+        setNewPostVisible={setNewPostVisible}
+      />
 
       <Feed
         newPostVisible={newPostVisible}
         setNewPostVisible={setNewPostVisible}
         view={view}
+        imageUpload={imageUpload}
+        imagePreviewURL={imagePreviewURL}
       />
     </div>
   );

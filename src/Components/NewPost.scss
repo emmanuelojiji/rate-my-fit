@@ -7,6 +7,14 @@
     background: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items:center;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    textarea{
+        width: 100%;
+        min-height: 200px;
+        border: 0;
+        outline: none;
+    }
 }
