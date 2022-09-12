@@ -10,8 +10,11 @@ import {
 import { db } from "../FirebaseConfig";
 import NewPost from "../Components/NewPost";
 import Post from "../Components/Post";
+import ScrollFeed from "../Components/ScrollFeed";
+import GridFeed from "../Components/GridFeed";
 
-const Feed = ({ newPostVisible, setNewPostVisible }) => {
+const Feed = ({ newPostVisible, setNewPostVisible, view }) => {
+
   const [posts, setPosts] = useState([]);
 
   const getPosts = async () => {
@@ -35,17 +38,8 @@ const Feed = ({ newPostVisible, setNewPostVisible }) => {
         setNewPostVisible={setNewPostVisible}
       />
       <div className="Feed">
-        <div className="feed-content">
-          {posts.map((post) => (
-            <Post post={post} />
-          ))}
-          {/* <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-      <Post />*/}
-        </div>
+        {view === "scroll" && <ScrollFeed posts={posts} />}
+        {view === "grid" && <GridFeed posts={posts} />}
       </div>
     </main>
   );

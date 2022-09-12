@@ -20,17 +20,7 @@ header {
     font-size: 25px;
   }
 
-  button{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border: 0;
-    border-radius: 500px;
-    background-color: coral;
-    color: white;
-    font-weight: bold;
-  }
+  
 }
 
 .header-wrap {
@@ -50,4 +40,9 @@ p,span{
 
 .new-post{
   font-size: 28px;
+}
+
+.grid-icon{
+  font-size: 20px;
+  margin-right: 10px;
 }
