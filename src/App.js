@@ -18,22 +18,28 @@ function App() {
       <header>
         <div className="header-wrap">
           <h1>Logo</h1>
-          <div>
+          <div className="header-right">
             {view === "scroll" && (
-              <i class="fa-solid fa-border-none grid-icon" onClick={() => toggleView()}></i>
+              <i
+                class="fa-solid fa-border-none grid-icon"
+                onClick={() => toggleView()}
+              ></i>
             )}
             {view === "grid" && (
-              <i class="fa-solid fa-list list-icon" onClick={() => toggleView()}></i>
+              <i
+                class="fa-solid fa-list list-icon"
+                onClick={() => toggleView()}
+              ></i>
             )}
 
             <i
               className="fa-regular fa-square-plus new-post"
               onClick={() => setNewPostVisible(true)}
             ></i>
+            <div className="profile-circle"></div>
           </div>
         </div>
       </header>
-
 
       <Feed
         newPostVisible={newPostVisible}
