@@ -30,17 +30,22 @@ const Feed = ({ newPostVisible, setNewPostVisible }) => {
 
   return (
     <main>
-      <NewPost newPostVisible={newPostVisible} setNewPostVisible={setNewPostVisible} />
+      <NewPost
+        newPostVisible={newPostVisible}
+        setNewPostVisible={setNewPostVisible}
+      />
       <div className="Feed">
-        {posts.map((post) => (
-          <Post post={post} />
-        ))}
-        {/* <Post />
+        <div className="feed-content">
+          {posts.map((post) => (
+            <Post post={post} />
+          ))}
+          {/* <Post />
         <Post />
         <Post />
         <Post />
         <Post />
       <Post />*/}
+        </div>
       </div>
     </main>
   );

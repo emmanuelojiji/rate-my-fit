@@ -11,13 +11,11 @@ const Post = ({ post }) => {
         <img src={post.image}></img>
       </div>
       <div className="text-container">
-        <p className="caption">
-          {post.caption}
-        </p>
+        <p className="caption">{post.caption}</p>
         <div className="reaction-container">
-          <LoveReaction />
-          <StraightFaceReaction />
-          <SickReaction />
+          <LoveReaction post={post} />
+          <StraightFaceReaction post={post} />
+          <SickReaction post={post} />
         </div>
       </div>
     </div>

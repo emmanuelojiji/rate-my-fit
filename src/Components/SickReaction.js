@@ -1,13 +1,13 @@
 import sick from "../Media/sick.png";
 import "./Reaction.scss"
 
-const SickReaction = () => {
+const SickReaction = ({post}) => {
   return (
     <div className="reaction-number-wrap">
     <div className="reaction">
       <img src={sick}></img>
     </div>
-    <span>90</span>
+    <span>{post.sick}</span>
     </div>
   );
 };

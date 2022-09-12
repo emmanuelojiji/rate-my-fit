@@ -1,18 +1,15 @@
 .post {
   margin-bottom: 30px;
   max-width: 500px;
-  margin-left: 30px;
-  margin-right: 30px;
 }
 
 .image-container {
-  max-width: 500px;
+  width: 100%;
   margin-bottom: 10px;
 
   img {
     width: 100%;
     display: block;
-    border-radius: 10px;
   }
 }
 
