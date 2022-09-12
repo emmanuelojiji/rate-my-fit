@@ -4,12 +4,13 @@ header {
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-bottom: solid 1px lightgrey;
     display: flex;
     justify-content: center;
+    background: #141414;
   
     h1 {
       font-size: 25px;
+      color: white;
     }
   }
   
@@ -36,6 +37,7 @@ header {
   header {
     i {
       margin-right: 16px;
+      color: white;
     }
   
     .list-icon {
@@ -50,7 +52,7 @@ header {
     .profile-circle {
       height: 28px;
       width: 28px;
-      background: rgb(208, 208, 208);
+      background: white;
       border-radius: 100%;
     }
   

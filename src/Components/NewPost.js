@@ -47,7 +47,9 @@ const NewPost = ({
       className="new-post-container"
       style={{ display: newPostVisible ? "flex" : "none" }}
     >
+      <div className="img-container">
       <img src={imagePreviewURL}></img>
+      </div>
       <textarea
         placeholder="Write a caption"
         onChange={(e) => {
