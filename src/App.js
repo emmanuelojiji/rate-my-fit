@@ -9,20 +9,23 @@ function App() {
 
   const [view, setView] = useState("scroll");
 
+  const toggleView = () => {
+    view === "scroll" ? setView("grid") : setView("scroll");
+  };
+
   return (
     <div className="App">
       <header>
         <div className="header-wrap">
           <h1>Logo</h1>
           <div>
-            <button
-              class="grid-icon"
-              onClick={
-                view === "scroll"
-                  ? () => setView("grid")
-                  : () => setView("scroll")
-              }
-            >Change View</button>
+            {view === "scroll" && (
+              <i class="fa-solid fa-border-none grid-icon" onClick={() => toggleView()}></i>
+            )}
+            {view === "grid" && (
+              <i class="fa-solid fa-list list-icon" onClick={() => toggleView()}></i>
+            )}
+
             <i
               className="fa-regular fa-square-plus new-post"
               onClick={() => setNewPostVisible(true)}
@@ -30,12 +33,13 @@ function App() {
           </div>
         </div>
       </header>
+
+
       <Feed
         newPostVisible={newPostVisible}
         setNewPostVisible={setNewPostVisible}
         view={view}
       />
-      <Navigation />
     </div>
   );
 }
