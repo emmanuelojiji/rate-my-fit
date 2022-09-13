@@ -5,7 +5,7 @@ const GridFeed = ({ posts }) => {
   return (
     <div className="grid-feed">
       {posts.map((post) => (
-        <Post post={post} height='200px' marginBottom='0' textContainerDisplay='none'/>
+        <Post post={post} height='200px' marginBottom='0' textContainerDisplay='none' userInfoDisplay='none'/>
       ))}
     </div>
   );

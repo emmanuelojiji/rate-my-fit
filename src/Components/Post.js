@@ -10,10 +10,11 @@ const Post = ({
   width,
   marginBottom,
   textContainerDisplay,
+  userInfoDisplay
 }) => {
   return (
     <div class="post" style={{ marginBottom: marginBottom }}>
-      <div className="post-user-info">
+      <div className="post-user-info" style={{ display: userInfoDisplay}}>
         <ProfileCircle height="40px" width="40px" />
         <span className="username">username</span>
       </div>

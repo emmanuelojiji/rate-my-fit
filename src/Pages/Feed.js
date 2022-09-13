@@ -13,7 +13,13 @@ import Post from "../Components/Post";
 import ScrollFeed from "../Components/ScrollFeed";
 import GridFeed from "../Components/GridFeed";
 
-const Feed = ({ newPostVisible, setNewPostVisible, view, imagePreviewURL, imageUpload }) => {
+const Feed = ({
+  newPostVisible,
+  setNewPostVisible,
+  view,
+  imagePreviewURL,
+  imageUpload,
+}) => {
   const [posts, setPosts] = useState([]);
 
   const getPosts = async () => {
