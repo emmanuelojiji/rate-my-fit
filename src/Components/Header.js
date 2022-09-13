@@ -14,7 +14,7 @@ const Header = ({
   return (
     <header>
       <div className="header-wrap">
-        <h1>Logo</h1>
+        <h1>LOGO</h1>
         <div className="header-right">
           {view === "scroll" && (
             <i
