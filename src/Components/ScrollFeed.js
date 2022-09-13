@@ -3,9 +3,9 @@ import Post from "./Post";
 
 const ScrollFeed = ({ posts, style }) => {
   return (
-    <div className="scroll-feed" style={{display: style}}>
+    <div className="scroll-feed" style={{ display: style }}>
       {posts.map((post) => (
-        <Post post={post} username='emmanuel' caption='Wearing a black vest with some beige trousers. What do you think?'/>
+        <Post post={post} />
       ))}
     </div>
   );
