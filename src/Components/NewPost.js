@@ -6,12 +6,14 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../FirebaseConfig";
 
 import { v4 as uuidv4 } from "uuid";
+import Loader from "./Loader";
 
 const NewPost = ({
   newPostVisible,
   setNewPostVisible,
   imageUpload,
   imagePreviewURL,
+  setImagePreviewURL,
 }) => {
   const [postInfo, setPostInfo] = useState({});
   const [caption, setCaption] = useState("");
@@ -19,12 +21,15 @@ const NewPost = ({
 
   const [imagePrefix, setImagePrefix] = useState();
 
+  const [loaderVisible, setLoaderVisible] = useState(false);
+
   async function sendPost(e) {
     const imagePrefix = `${imageUpload.name + uuidv4()}`;
 
     if (imageUpload) {
       const imageRef = ref(storage, imagePrefix);
 
+      setLoaderVisible(true);
       await uploadBytes(imageRef, imageUpload);
 
       console.log("Image uploaded. " + imageUpload);
@@ -39,6 +44,9 @@ const NewPost = ({
       setImageUrl(url);
 
       await setNewPostVisible(false);
+
+      setCaption("");
+      setLoaderVisible(false);
     }
   }
 
@@ -47,8 +55,9 @@ const NewPost = ({
       className="new-post-container"
       style={{ display: newPostVisible ? "flex" : "none" }}
     >
+      <Loader loaderStyle={loaderVisible ? "flex" : "none"} />
       <div className="img-container">
-      <img src={imagePreviewURL}></img>
+        <img src={imagePreviewURL}></img>
       </div>
       <textarea
         placeholder="Write a caption"

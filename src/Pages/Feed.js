@@ -12,6 +12,7 @@ import NewPost from "../Components/NewPost";
 import Post from "../Components/Post";
 import ScrollFeed from "../Components/ScrollFeed";
 import GridFeed from "../Components/GridFeed";
+import Loader from "../Components/Loader";
 
 const Feed = ({
   newPostVisible,
@@ -39,14 +40,14 @@ const Feed = ({
   return (
     <main>
       <NewPost
-      newPostVisible={newPostVisible}
+        newPostVisible={newPostVisible}
         setNewPostVisible={setNewPostVisible}
         imagePreviewURL={imagePreviewURL}
         imageUpload={imageUpload}
       />
       <div className="Feed">
-        <ScrollFeed posts={posts} style={view === "scroll" && 'flex'} />
-        <GridFeed posts={posts} style={view === "grid" && 'grid'}/>
+        <ScrollFeed posts={posts} style={view === "scroll" && "flex"} />
+        <GridFeed posts={posts} style={view === "grid" && "grid"} />
       </div>
     </main>
   );
