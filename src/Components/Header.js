@@ -1,5 +1,6 @@
 import "./Header.scss";
 import ProfileCircle from "./ProfileCircle";
+import { Link } from "react-router-dom";
 
 const Header = ({
   view,
@@ -49,7 +50,9 @@ const Header = ({
             }}
             style={{ display: "none" }}
           ></input>
-         <ProfileCircle height='28px' width='28px'/>
+          <Link to="/user">
+            <ProfileCircle height="28px" width="28px" />
+          </Link>
         </div>
       </div>
     </header>
