@@ -39,14 +39,14 @@ const Feed = ({
   return (
     <main>
       <NewPost
-        newPostVisible={newPostVisible}
+      newPostVisible={newPostVisible}
         setNewPostVisible={setNewPostVisible}
         imagePreviewURL={imagePreviewURL}
         imageUpload={imageUpload}
       />
       <div className="Feed">
-        {view === "scroll" && <ScrollFeed posts={posts} />}
-        {view === "grid" && <GridFeed posts={posts} />}
+        <ScrollFeed posts={posts} style={view === "scroll" && 'flex'} />
+        <GridFeed posts={posts} style={view === "grid" && 'grid'}/>
       </div>
     </main>
   );

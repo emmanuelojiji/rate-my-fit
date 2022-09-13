@@ -4,6 +4,9 @@ import NewPost from "./Components/NewPost";
 import { useEffect, useState, usePrevious } from "react";
 import Navigation from "./Components/Navigation";
 import Header from "./Components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import User from "./Pages/User";
 
 function App() {
   const [newPostVisible, setNewPostVisible] = useState(false);
@@ -19,23 +22,26 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        view={view}
-        toggleView={toggleView}
-        setImageUpload={setImageUpload}
-        setImagePreviewURL={setImagePreviewURL}
-        imagePreviewURL={imagePreviewURL}
-        newPostVisible={newPostVisible}
-        setNewPostVisible={setNewPostVisible}
-      />
-
-      <Feed
-        newPostVisible={newPostVisible}
-        setNewPostVisible={setNewPostVisible}
-        view={view}
-        imageUpload={imageUpload}
-        imagePreviewURL={imagePreviewURL}
-      />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                view={view}
+                toggleView={toggleView}
+                imageUpload={imageUpload}
+                setImageUpload={setImageUpload}
+                setImagePreviewURL={setImagePreviewURL}
+                imagePreviewURL={imagePreviewURL}
+                newPostVisible={newPostVisible}
+                setNewPostVisible={setNewPostVisible}
+              />
+            }
+          />
+          <Route path="/user" element={<User />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
