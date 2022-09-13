@@ -1,4 +1,5 @@
 import Header from "../Components/Header";
+import Loader from "../Components/Loader";
 import Feed from "./Feed";
 
 const Home = ({
@@ -13,6 +14,7 @@ const Home = ({
 }) => {
   return (
     <>
+    
       <Header
         view={view}
         toggleView={toggleView}

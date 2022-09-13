@@ -46,7 +46,7 @@ const NewPost = ({
       await setNewPostVisible(false);
 
       setCaption("");
-      setLoaderVisible(false);
+      
     }
   }
 
