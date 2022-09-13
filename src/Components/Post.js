@@ -1,8 +1,6 @@
 import food from "../Media/food.jpeg";
 import "../Components/Post.scss";
-import LoveReaction from "./LoveReaction";
-import StraightFaceReaction from "./StraightFaceReaction";
-import SickReaction from "./SickReaction";
+import ProfileCircle from "./ProfileCircle";
 
 const Post = ({
   post,
@@ -15,6 +13,10 @@ const Post = ({
 }) => {
   return (
     <div class="post" style={{ marginBottom: marginBottom }}>
+      <div className="post-user-info">
+        <ProfileCircle height="40px" width="40px" />
+        <span className="username">username</span>
+      </div>
       <div className="image-container">
         <img src={post.image} style={{ height: height, width: width }}></img>
       </div>

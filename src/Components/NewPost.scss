@@ -10,19 +10,32 @@
     padding-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
+    background: #141414;
 
     textarea{
         width: 100%;
         min-height: 200px;
         border: 0;
         outline: none;
+        font-family: sans-serif;
+        margin-top: 10px;
+        background: transparent;
+        color: white;
+
+        &::placeholder{
+            color: white;
+        }
     }
 
     .img-container{
-        
+        max-width: 300px;
     }
 
     img{
         width: 100%
+    }
+
+    button{
+        height: 50px;
     }
 }

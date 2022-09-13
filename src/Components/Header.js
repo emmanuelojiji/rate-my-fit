@@ -1,4 +1,5 @@
 import "./Header.scss";
+import ProfileCircle from "./ProfileCircle";
 
 const Header = ({
   view,
@@ -48,7 +49,7 @@ const Header = ({
             }}
             style={{ display: "none" }}
           ></input>
-          <div className="profile-circle"></div>
+         <ProfileCircle height='28px' width='28px'/>
         </div>
       </div>
     </header>
