@@ -1,46 +1,40 @@
-h1 {
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.sign-up-wrap {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  height: 50px;
+  appearance: none;
+  background: transparent;
+  border: solid 1px white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: white;
+  padding-left: 12px;
+
+  &::placeholder {
     color: white;
-    margin-bottom: 20px;
   }
-  
-  .sign-up {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  
-  .sign-up-wrap {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input {
-    height: 50px;
-    appearance: none;
-    background: transparent;
-    border: solid 1px white;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    color: white;
-    padding-left: 12px;
-  
-    &::placeholder {
-      color: white;
-    }
-  }
-  
-  button {
-    height: 50px;
-    appearance: none;
-    background: transparent;
-    color: white;
-    border: solid 1px white;
-    border-radius: 5px;
-  }
-  
+}
+
+button {
+  height: 50px;
+  appearance: none;
+  background: transparent;
+  color: white;
+  border: solid 1px white;
+  border-radius: 5px;
+}
