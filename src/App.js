@@ -4,10 +4,11 @@ import NewPost from "./Components/NewPost";
 import { useEffect, useState, usePrevious } from "react";
 import Navigation from "./Components/Navigation";
 import Header from "./Components/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import User from "./Pages/User";
 import Profile from "./Pages/Profile";
+import { auth } from "./FirebaseConfig";
 
 function App() {
   const [newPostVisible, setNewPostVisible] = useState(false);
@@ -20,6 +21,12 @@ function App() {
 
   const [imageUpload, setImageUpload] = useState();
   const [imagePreviewURL, setImagePreviewURL] = useState("");
+
+  // Private Routes //
+
+  const ProfilePrivateRoute = ({ children }) => {
+    return auth ? children : <Navigate to="/user" />;
+  };
 
   return (
     <div className="App">
@@ -40,8 +47,14 @@ function App() {
               />
             }
           />
-          <Route path="/user" element={<User />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/profile"
+            element={
+              <ProfilePrivateRoute>
+                <Profile />
+              </ProfilePrivateRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

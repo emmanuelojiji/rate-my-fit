@@ -1,6 +1,9 @@
 import "./Header.scss";
 import ProfileCircle from "./ProfileCircle";
 import { Link } from "react-router-dom";
+import { auth } from "../FirebaseConfig";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Header = ({
   view,
@@ -12,6 +15,7 @@ const Header = ({
   setNewPostVisible,
   displayHomeIcon,
 }) => {
+
   return (
     <header>
       <div className="header-wrap">
@@ -41,6 +45,7 @@ const Header = ({
             <i className="fa-regular fa-square-plus new-post"></i>
           </label>
           <input
+            disabled={auth.currentUser ? false : true}
             type="file"
             id="image-upload"
             onChange={(e) => {
@@ -58,7 +63,7 @@ const Header = ({
             }}
             style={{ display: "none" }}
           ></input>
-          <Link to="/user">
+          <Link to={auth.currentUser ? "/profile" : "/user"}>
             <ProfileCircle height="28px" width="28px" />
           </Link>
         </div>
