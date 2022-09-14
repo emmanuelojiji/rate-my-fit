@@ -2,8 +2,9 @@ import "./Header.scss";
 import ProfileCircle from "./ProfileCircle";
 import { Link } from "react-router-dom";
 import { auth } from "../FirebaseConfig";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({
   view,
@@ -15,6 +16,16 @@ const Header = ({
   setNewPostVisible,
   displayHomeIcon,
 }) => {
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+  });
+
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className="header-wrap">
@@ -40,12 +51,13 @@ const Header = ({
             ></i>
           </Link>
 
-          <label for="image-upload">
+          <label for="image-upload" onClick={() => !currentUser && navigate('/signin')}>
             <i className="fa-regular fa-square-plus new-post"></i>
           </label>
           <input
             type="file"
             id="image-upload"
+            disabled={currentUser ? false : true}
             onChange={(e) => {
               setImageUpload(e.target.files[0]);
 

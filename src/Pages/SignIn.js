@@ -35,6 +35,7 @@ const SignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <button onClick={() => signIn()}>Sign In</button>
+       <Link to="/signup" className="sign-instead">Sign up instead</Link>
       </div>
     </div>
   );

@@ -6,9 +6,10 @@ import Navigation from "./Components/Navigation";
 import Header from "./Components/Header";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
-import User from "./Pages/User";
 import Profile from "./Pages/Profile";
 import { auth } from "./FirebaseConfig";
+import SignIn from "./Pages/SignIn";
+import SignUp from "./Pages/SignUp";
 
 function App() {
   const [newPostVisible, setNewPostVisible] = useState(false);
@@ -25,7 +26,7 @@ function App() {
   // Private Routes //
 
   const ProfilePrivateRoute = ({ children }) => {
-    return auth.currentUser ? children : <Navigate to="/user" />;
+    return auth.currentUser ? children : <Navigate to="/signin" />;
   };
 
   return (
@@ -47,7 +48,8 @@ function App() {
               />
             }
           />
-          <Route path="/user" element={<User />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route
             path="/profile"
             element={
