@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import User from "./Pages/User";
+import Profile from "./Pages/Profile";
 
 function App() {
   const [newPostVisible, setNewPostVisible] = useState(false);
@@ -40,6 +41,7 @@ function App() {
             }
           />
           <Route path="/user" element={<User />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

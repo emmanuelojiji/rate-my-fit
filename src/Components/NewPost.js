@@ -7,6 +7,7 @@ import { storage } from "../FirebaseConfig";
 
 import { v4 as uuidv4 } from "uuid";
 import Loader from "./Loader";
+import { auth } from "../FirebaseConfig";
 
 const NewPost = ({
   newPostVisible,
@@ -39,6 +40,7 @@ const NewPost = ({
       const docRef = await addDoc(collection(db, "posts"), {
         caption: caption,
         image: url,
+        username: auth.currentUser.displayName,
       });
 
       setImageUrl(url);
@@ -46,7 +48,6 @@ const NewPost = ({
       await setNewPostVisible(false);
 
       setCaption("");
-      
     }
   }
 

@@ -5,7 +5,7 @@ import "./User.scss";
 const User = () => {
   return (
     <div className="user">
-      <SignUp />
+      <SignIn />
     </div>
   );
 };
