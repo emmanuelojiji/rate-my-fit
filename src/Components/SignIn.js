@@ -19,7 +19,7 @@ const SignIn = () => {
 
   return (
     <div className="sign-up">
-      <Link to="/">Back</Link>
+      
 
       <div className="sign-up-wrap">
         <input
