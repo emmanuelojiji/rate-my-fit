@@ -10,6 +10,7 @@ const Header = ({
   imagePreviewURL,
   newPostVisible,
   setNewPostVisible,
+  displayHomeIcon,
 }) => {
   return (
     <header>
@@ -28,6 +29,13 @@ const Header = ({
               onClick={() => toggleView()}
             ></i>
           )}
+
+          <Link to="/">
+            <i
+              class="fa-solid fa-house home-icon"
+              style={{ display: displayHomeIcon }}
+            ></i>
+          </Link>
 
           <label for="image-upload">
             <i className="fa-regular fa-square-plus new-post"></i>

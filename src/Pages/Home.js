@@ -23,6 +23,7 @@ const Home = ({
         imagePreviewURL={imagePreviewURL}
         newPostVisible={newPostVisible}
         setNewPostVisible={setNewPostVisible}
+        displayHomeIcon='none'
       />
       <Feed
         newPostVisible={newPostVisible}
