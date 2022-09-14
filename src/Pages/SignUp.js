@@ -3,10 +3,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../FirebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const signUp = () => {
     createUserWithEmailAndPassword(auth, email, password).then(
@@ -23,6 +26,7 @@ const SignUp = () => {
         });
       }
     );
+    navigate("/signin");
   };
 
   return (
@@ -51,7 +55,9 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <button onClick={() => signUp()}>Sign Up</button>
-        <Link to="/signin" className="sign-instead">Sign In instead</Link>
+        <Link to="/signin" className="sign-instead">
+          Sign In instead
+        </Link>
       </div>
     </div>
   );
