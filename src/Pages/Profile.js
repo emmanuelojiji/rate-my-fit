@@ -4,16 +4,23 @@ import ProfileCircle from "../Components/ProfileCircle";
 import Header from "../Components/Header";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user);
       setCurrentUser(user.displayName);
     });
   });
+
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    auth.signOut();
+    navigate('/')
+  };
 
   return (
     <div className="profile">
@@ -28,6 +35,10 @@ const Profile = () => {
             </span>
           </div>
         </div>
+
+        <h1 className="log-out" onClick={() => signOut()}>
+          Log out
+        </h1>
       </div>
     </div>
   );

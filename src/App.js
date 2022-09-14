@@ -25,7 +25,7 @@ function App() {
   // Private Routes //
 
   const ProfilePrivateRoute = ({ children }) => {
-    return auth ? children : <Navigate to="/user" />;
+    return auth.currentUser ? children : <Navigate to="/user" />;
   };
 
   return (
@@ -47,6 +47,7 @@ function App() {
               />
             }
           />
+          <Route path="/user" element={<User />} />
           <Route
             path="/profile"
             element={

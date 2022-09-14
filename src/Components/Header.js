@@ -15,7 +15,6 @@ const Header = ({
   setNewPostVisible,
   displayHomeIcon,
 }) => {
-
   return (
     <header>
       <div className="header-wrap">
@@ -45,7 +44,6 @@ const Header = ({
             <i className="fa-regular fa-square-plus new-post"></i>
           </label>
           <input
-            disabled={auth.currentUser ? false : true}
             type="file"
             id="image-upload"
             onChange={(e) => {
@@ -63,7 +61,7 @@ const Header = ({
             }}
             style={{ display: "none" }}
           ></input>
-          <Link to={auth.currentUser ? "/profile" : "/user"}>
+          <Link to="/profile">
             <ProfileCircle height="28px" width="28px" />
           </Link>
         </div>
