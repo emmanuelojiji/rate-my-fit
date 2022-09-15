@@ -92,9 +92,9 @@ const Profile = ({
 
         <GridFeed posts={userPosts} style="grid" />
 
-        {/*<h1 className="log-out" onClick={() => signOut()}>
+        <h1 className="log-out" onClick={() => signOut()}>
           Log out
-  </h1>*/}
+        </h1>
       </div>
     </div>
   );
