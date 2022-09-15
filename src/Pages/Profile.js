@@ -6,6 +6,9 @@ import NewPost from "../Components/NewPost";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import GridFeed from "../Components/GridFeed";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../FirebaseConfig";
 
 const Profile = ({
   setImageUpload,
@@ -14,16 +17,40 @@ const Profile = ({
   newPostVisible,
   setNewPostVisible,
   imageUpload,
+  posts,
 }) => {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState("");
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user.displayName);
+      setCurrentUser(user);
     });
   });
 
   const navigate = useNavigate();
+
+  const [userPosts, setUserPosts] = useState([]);
+
+  const postsRef = collection(db, "posts");
+
+  const userPostsQuery = query(
+    postsRef,
+    where("uid", "==", auth.currentUser.uid)
+  );
+
+  const getPosts = async () => {
+    const querySnapshot = await getDocs(userPostsQuery);
+    const postsFromFirestore = [];
+    querySnapshot.forEach((doc) => {
+      postsFromFirestore.push(doc.data());
+    });
+
+    setUserPosts(postsFromFirestore);
+  };
+
+  useEffect(() => {
+    getPosts();
+  });
 
   const signOut = () => {
     auth.signOut();
@@ -51,12 +78,14 @@ const Profile = ({
         <div className="profile-info-container">
           <ProfileCircle height="70px" width="70px" />
           <div className="profile-info-container-right">
-            <span className="profile-username">{currentUser}</span>
+            <span className="profile-username">{currentUser.displayName}</span>
             <span className="following-container">
               Following 36 Followers 70
             </span>
           </div>
         </div>
+
+        <GridFeed posts={userPosts} style="grid" />
 
         <h1 className="log-out" onClick={() => signOut()}>
           Log out

@@ -41,7 +41,7 @@ const NewPost = ({
         caption: caption,
         image: url,
         username: auth.currentUser.displayName,
-        id: auth.currentUser.uid,
+        uid: auth.currentUser.uid,
       });
 
       setImageUrl(url);

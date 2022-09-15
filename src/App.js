@@ -8,10 +8,34 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import { auth } from "./FirebaseConfig";
+import {
+  doc,
+  onSnapshot,
+  getDocs,
+  addDoc,
+  collection,
+} from "firebase/firestore";
+import { db } from "./FirebaseConfig";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = async () => {
+    const querySnapshot = await getDocs(collection(db, "posts"));
+    const postsFromFirestore = [];
+    querySnapshot.forEach((doc) => {
+      postsFromFirestore.push(doc.data());
+    });
+
+    setPosts(postsFromFirestore);
+  };
+
+  useEffect(() => {
+    getPosts();
+  },[]);
+
   const [newPostVisible, setNewPostVisible] = useState(false);
 
   const [view, setView] = useState("scroll");
@@ -45,6 +69,7 @@ function App() {
                 imagePreviewURL={imagePreviewURL}
                 newPostVisible={newPostVisible}
                 setNewPostVisible={setNewPostVisible}
+                posts={posts}
               />
             }
           />
@@ -61,6 +86,7 @@ function App() {
                   imagePreviewURL={imagePreviewURL}
                   newPostVisible={newPostVisible}
                   setNewPostVisible={setNewPostVisible}
+                  posts={posts}
                 />
               </ProfilePrivateRoute>
             }

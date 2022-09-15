@@ -11,6 +11,7 @@ const Home = ({
   imagePreviewURL,
   newPostVisible, 
   setNewPostVisible,
+  posts
 }) => {
   return (
     <>
@@ -31,6 +32,7 @@ const Home = ({
         view={view}
         imageUpload={imageUpload}
         imagePreviewURL={imagePreviewURL}
+        posts={posts}
       />
     </>
   );
