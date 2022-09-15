@@ -9,7 +9,7 @@ const Home = ({
   setImageUpload,
   setImagePreviewURL,
   imagePreviewURL,
-  newPostVisible,
+  newPostVisible, 
   setNewPostVisible,
 }) => {
   return (

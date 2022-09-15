@@ -19,6 +19,7 @@ const Feed = ({
   setNewPostVisible,
   view,
   imagePreviewURL,
+  setImageUpload,
   imageUpload,
 }) => {
   const [posts, setPosts] = useState([]);
@@ -44,6 +45,7 @@ const Feed = ({
         setNewPostVisible={setNewPostVisible}
         imagePreviewURL={imagePreviewURL}
         imageUpload={imageUpload}
+        setImageUpload={setImageUpload}
       />
       <div className="Feed">
         <ScrollFeed posts={posts} style={view === "scroll" && "flex"} />

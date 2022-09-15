@@ -47,7 +47,7 @@ const Header = ({
           <Link to="/">
             <i
               class="fa-solid fa-house home-icon"
-              style={{ display: displayHomeIcon }}
+              style={{ display: displayHomeIcon }} 
             ></i>
           </Link>
 
@@ -59,7 +59,7 @@ const Header = ({
             id="image-upload"
             disabled={currentUser ? false : true}
             onChange={(e) => {
-              setImageUpload(e.target.files[0]);
+              setImageUpload(e.target.files[0]); 
 
               let previewFile = e.target.files[0];
               let reader = new FileReader();
@@ -67,9 +67,10 @@ const Header = ({
               reader.onload = (e) => {
                 setImagePreviewURL(e.target.result);
                 console.log(imagePreviewURL);
+                setNewPostVisible(true);
               };
 
-              setNewPostVisible(true);
+        
             }}
             style={{ display: "none" }}
           ></input>

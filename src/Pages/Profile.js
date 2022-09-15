@@ -2,11 +2,19 @@ import "./Profile.scss";
 import { auth } from "../FirebaseConfig";
 import ProfileCircle from "../Components/ProfileCircle";
 import Header from "../Components/Header";
+import NewPost from "../Components/NewPost";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const Profile = ({
+  setImageUpload,
+  setImagePreviewURL,
+  imagePreviewURL,
+  newPostVisible,
+  setNewPostVisible,
+  imageUpload,
+}) => {
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
@@ -19,12 +27,26 @@ const Profile = () => {
 
   const signOut = () => {
     auth.signOut();
-    navigate('/')
+    navigate("/");
   };
 
   return (
     <div className="profile">
-      <Header />
+      <NewPost
+        newPostVisible={newPostVisible}
+        setNewPostVisible={setNewPostVisible}
+        imagePreviewURL={imagePreviewURL}
+        imageUpload={imageUpload}
+        setImageUpload={setImageUpload}
+      />
+      <Header
+        setImageUpload={setImageUpload}
+        setImagePreviewURL={setImagePreviewURL}
+        imagePreviewURL={imagePreviewURL}
+        newPostVisible={newPostVisible}
+        setNewPostVisible={setNewPostVisible}
+        imageUpload={imageUpload}
+      />
       <div className="profile-wrap">
         <div className="profile-info-container">
           <ProfileCircle height="70px" width="70px" />
