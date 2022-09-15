@@ -23,7 +23,7 @@ const Post = ({
         <img src={post.image} style={{ height: height, width: width }}></img>
       </div>
       <div className="text-container" style={{ display: textContainerDisplay }}>
-        <span className="username"></span>
+        <span className="username">{post.username}</span>
         <span className="caption">{post.caption}</span>
       </div>
     </div>
