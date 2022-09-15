@@ -54,7 +54,14 @@ function App() {
             path="/profile"
             element={
               <ProfilePrivateRoute>
-                <Profile />
+                <Profile
+                  imageUpload={imageUpload}
+                  setImageUpload={setImageUpload}
+                  setImagePreviewURL={setImagePreviewURL}
+                  imagePreviewURL={imagePreviewURL}
+                  newPostVisible={newPostVisible}
+                  setNewPostVisible={setNewPostVisible}
+                />
               </ProfilePrivateRoute>
             }
           />
