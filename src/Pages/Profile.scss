@@ -1,6 +1,5 @@
 .profile-username {
   color: white;
- 
   font-weight: bold;
 }
 
@@ -28,18 +27,41 @@
   margin-bottom: 50px;
 }
 
-.profile-info-container-right{
+.profile-info-container-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.following-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 10px;
+    margin-top: 5px;
+  
+    span{
+        color: white;
+        font-size: 14px;
+        color: #999999;
+
+        &:nth-child(1){
+            margin-right: 5px;
+        }
+    }
 }
 
-.following-container{
-    color: white;
+.following-text-wrap{
+    display: flex;
+
+    &:nth-child(1){
+        margin-right: 10px;
+    }
 }
 
-.log-out{
-    color: white;
-    margin-top: 50px;
+.grey{
+    color: #999999 !important;
+}
+
+.log-out {
+  color: white;
+  margin-top: 50px;
 }

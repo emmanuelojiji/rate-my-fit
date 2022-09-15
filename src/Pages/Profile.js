@@ -79,9 +79,14 @@ const Profile = ({
           <ProfileCircle height="70px" width="70px" />
           <div className="profile-info-container-right">
             <span className="profile-username">{currentUser.displayName}</span>
-            <span className="following-container">
-              Following 36 Followers 70
-            </span>
+            <div className="following-container">
+              <div className="following-text-wrap">
+                <span>Following</span> <span className="grey">36</span>
+              </div>
+              <div className="following-text-wrap">
+                <span>Following</span> <span className="grey">10</span>
+              </div>
+            </div>
           </div>
         </div>
 
